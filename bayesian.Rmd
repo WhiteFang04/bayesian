@@ -1,0 +1,165 @@
+```{r}
+
+dir.create# Specify the description content
+description_content <- "Package: bayesian analysis aryan
+Title: Bayesian Analysis Package
+Version: 0.1.0
+Authors@R: person('ARYAN SOLANKI', email = 'aryanans12@gmail.com', role = c('aut', 'cre'))
+Description: A package for Bayesian analysis.
+License: GPL-3"
+
+# Write the content to DESCRIPTION file
+writeLines(description_content, con = "bayesian analysis aryan/DESCRIPTION")
+
+# Specify the namespace content
+namespace_content <- "export(bayesian_analysis_aryan)"
+
+# Write the content to NAMESPACE file
+writeLines(namespace_content, con = "bayesian analysis aryan/NAMESPACE")
+
+# Create the R directory
+dir.create("bayesian analysis aryan/R")
+
+# Specify the content for the bayesian_analysis.R file
+bayesian_analysis_content <- "
+bayesian_analysis <- function(sample_data, prior_mean = 10, prior_variance = 0.16, alpha = 0.05) {
+  # Sample statistics
+  sample_mean <- mean(sample_data)
+  sample_variance <- var(sample_data)
+  sample_size <- length(sample_data)
+
+  # Bayesian approach to estimate population mean
+  bayesian_mean <- (prior_mean / prior_variance + sum(sample_data) / sample_variance) /
+                   (1 / prior_variance + sample_size / sample_variance)
+
+  # Compute posterior distribution
+  posterior_mean <- bayesian_mean
+  posterior_variance <- 1 / (1 / prior_variance + sample_size / sample_variance)
+
+  # Calculate probability of 𝜇 > 10
+  p_mu_gt_10 <- 1 - pnorm(10, mean = posterior_mean, sd = sqrt(posterior_variance))
+
+  # Decision rule
+  if (p_mu_gt_10 < alpha) {
+    decision <- 'Reject H'
+  } else {
+    decision <- 'Fail to reject H'
+  }
+
+  cat('Bayes\\' estimator of the mean 𝜇:', bayesian_mean, '\\n')
+  cat('Probability of 𝜇 > 10:', p_mu_gt_10, '\\n')
+  cat('Decision based on Bayesian approach:', decision, '\\n')
+
+  return(list(bayesian_mean = bayesian_mean, p_mu_gt_10 = p_mu_gt_10, decision = decision))
+}
+"
+
+# Specify the correct file path for the bayesian_analysis.R file
+file_path <- file.path("bayesian analysis aryan", "R", "bayesian_analysis.R")
+
+# Write the content to bayesian_analysis.R file
+writeLines(bayesian_analysis_content, con = file_path)
+
+```
+
+
+
+```{r}
+# Specify the directory path
+directory_path <- "bayesian analysis aryan"
+
+# Create the directory with recursive option to overwrite if it already exists
+dir.create(directory_path, recursive = TRUE)
+
+# Check if the directory was created successfully
+if (dir.exists(directory_path)) {
+  cat("Directory created successfully:", directory_path, "\n")
+} else {
+  cat("Failed to create directory:", directory_path, "\n")
+}
+```
+```{r}
+# Specify the directory path
+directory_path <- "bayesian analysis aryan"
+
+# Create the directory with recursive option to overwrite if it already exists
+dir.create(directory_path, recursive = TRUE)
+
+# Check if the directory was created successfully
+if (dir.exists(directory_path)) {
+  cat("Directory created successfully:", directory_path, "\n")
+} else {
+  cat("Failed to create directory:", directory_path, "\n")
+}
+
+# Specify the description content
+description_content <- "Package: bayesian analysis aryan
+Title: Bayesian Analysis Package
+Version: 0.1.0
+Authors@R: person('ARYAN SOLANKI', email = 'aryanans12@gmail.com', role = c('aut', 'cre'))
+Description: A package for Bayesian analysis.
+License: GPL-3"
+
+# Write the content to DESCRIPTION file
+writeLines(description_content, con = file.path(directory_path, "DESCRIPTION"))
+
+# Specify the namespace content
+namespace_content <- "export(bayesian_analysis)"
+
+# Write the content to NAMESPACE file
+writeLines(namespace_content, con = file.path(directory_path, "NAMESPACE"))
+
+# Create the R directory
+dir.create(file.path(directory_path, "R"))
+
+# Specify the content for the bayesian_analysis.R file
+bayesian_analysis_content <- "
+bayesian_analysis <- function(sample_data, prior_mean = 10, prior_variance = 0.16, alpha = 0.05) {
+  # Sample statistics
+  sample_mean <- mean(sample_data)
+  sample_variance <- var(sample_data)
+  sample_size <- length(sample_data)
+
+  # Bayesian approach to estimate population mean
+  bayesian_mean <- (prior_mean / prior_variance + sum(sample_data) / sample_variance) /
+                   (1 / prior_variance + sample_size / sample_variance)
+
+  # Compute posterior distribution
+  posterior_mean <- bayesian_mean
+  posterior_variance <- 1 / (1 / prior_variance + sample_size / sample_variance)
+
+  # Calculate probability of 𝜇 > 10
+  p_mu_gt_10 <- 1 - pnorm(10, mean = posterior_mean, sd = sqrt(posterior_variance))
+
+  # Decision rule
+  if (p_mu_gt_10 < alpha) {
+    decision <- 'Reject H'
+  } else {
+    decision <- 'Fail to reject H'
+  }
+
+  cat('Bayes\\' estimator of the mean 𝜇:', bayesian_mean, '\\n')
+  cat('Probability of 𝜇 > 10:', p_mu_gt_10, '\\n')
+  cat('Decision based on Bayesian approach:', decision, '\\n')
+
+  return(list(bayesian_mean = bayesian_mean, p_mu_gt_10 = p_mu_gt_10, decision = decision))
+}
+"
+
+# Specify the correct file path for the bayesian_analysis.R file
+file_path <- file.path(directory_path, "R", "bayesian_analysis.R")
+
+# Write the content to bayesian_analysis.R file
+writeLines(bayesian_analysis_content, con = file_path)
+```
+
+
+
+
+
+
+
+
+
+
+
